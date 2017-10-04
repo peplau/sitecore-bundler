@@ -62,6 +62,12 @@
       <HintPath>..\Libs\Sitecore 9\Sitecore.Kernel.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Sitecore.Mvc">
+      <HintPath>..\Libs\Sitecore 9\Sitecore.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Mvc.Analytics">
+      <HintPath>..\Libs\Sitecore 9\Sitecore.Mvc.Analytics.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -134,6 +140,8 @@
     </Content>
     <None Include="Properties\PublishProfiles\Deploy local - DEBUG.pubxml" />
     <None Include="Properties\PublishProfiles\Deploy Local - RELEASE.pubxml" />
+    <Content Include="Views\TAC\Events\Layouts\Events.cshtml" />
+    <Content Include="Views\web.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

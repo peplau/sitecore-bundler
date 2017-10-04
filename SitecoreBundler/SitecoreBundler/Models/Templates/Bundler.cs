@@ -36,7 +36,7 @@ namespace SitecoreBundler.Models.Templates
             try
             {
                 var contentStartPath = Sitecore.Context.Site.ContentStartPath;
-                var query = $"/{contentStartPath}//*[@@templateid='{Models.Templates.Bundler.TemplateID}']";
+                var query = $"{contentStartPath}//*[@@templateid='{Models.Templates.Bundler.TemplateID}']";
                 var bundleItem = Sitecore.Context.Database.SelectSingleItem(query);
                 return bundleItem == null ? null : new Bundler(bundleItem);
             }

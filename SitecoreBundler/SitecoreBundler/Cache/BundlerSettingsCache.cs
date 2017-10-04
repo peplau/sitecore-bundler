@@ -13,9 +13,10 @@ namespace SitecoreBundler.Cache
 
         public bool HasChanged(Bundler bundler)
         {
-            return bundler.BundleLocalPath != _bundler.BundleLocalPath || bundler.Bundle != _bundler.Bundle ||
-                   bundler.Minify != _bundler.Minify ||
-                   bundler.AgressiveCache != _bundler.AgressiveCache;
+            return bundler.BundleLocalPath != _bundler.BundleLocalPath 
+                || bundler.Bundle != _bundler.Bundle 
+                || bundler.Minify != _bundler.Minify 
+                || bundler.AgressiveCache != _bundler.AgressiveCache;
         }
     }
 }

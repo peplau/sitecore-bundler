@@ -1,0 +1,149 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.Mvc.Analytics.Extensions
+@using Sitecore.Mvc.Presentation
+@using SitecoreBundler
+@model RenderingModel
+@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 9]><html lang="en" class="ie9 no-js"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="@Html.Sitecore().Field("MetaDescription",new {DisableWebEdit=true})" />
+    <title>@Html.Sitecore().Field("MetaTitle", new { DisableWebEdit = true })</title>
+    <link rel="stylesheet" type="text/css" href="/Css/vendor.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/niteflight.min.css" />
+    <link rel="stylesheet" type="text/css" href="/Css/addition.css">
+    <link rel="stylesheet" type="text/css" href="/Css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Css/Difficulty.css">
+    
+    <!-- CSS DYNAMICALLY -->
+    @SitecoreBundler.Bundle("styles-min.css")
+    <!-- END - CSS DYNAMICALLY -->    
+
+    @Html.Sitecore().VisitorIdentification()
+</head>
+<body class="header-static ">
+    <div id="main-container">
+        <!-- [Page Header] -->
+        <header class="header-static">
+            <nav class="navbar navbar-default navbar-static" id="mainNavbar">
+                <div class="container">
+                    <!-- [Company Logo] -->
+                    <div class="navbar-left">
+                        <a class="navbar-brand" href="index.html">
+                            <span class="logo">
+                                <img src="/Images/Logo_400x60.png" alt="The Adventure Company" width="400" height="60" />
+                            </span>
+                        </a>
+                    </div>
+                    <!-- [/Company Logo] -->
+                    <!-- [Main Navigation] -->
+                    <div class="navbar-left">ff
+                        <div class="collapse navbar-collapse" id="siteNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a class="text-uppercase" href="index.html">Home</a></li>
+                                <li class="dropdown">
+                                    <a href="Event-Sections.html" class="dropdown-toggle text-uppercase" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">
+                                        Events<span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="Event-List.html">Climbing</a></li>
+                                        <li><a href="Event-List.html">Cycling</a></li>
+                                        <li><a href="Event-List.html">Hiking</a></li>
+                                        <li><a href="Event-List.html">Skiing</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- [/Main Navigation] -->
+                    <!-- [Language Navigation] -->
+                    <div class="navbar-right">
+                        <div class="navbar-activity">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fa fa-globe"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="active"><a href="#">English</a></li>
+                                        <li><a href="#">Deutsch (Deutschland)</a></li>
+                                        <li><a href="#">日本語 (日本)</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- [/Language Navigation] -->
+                </div>
+            </nav>
+        </header>
+        <!-- [/Page Header] -->
+        <!-- [Page Content] -->
+        <main>
+            @Html.Sitecore().Placeholder("main")
+        </main>
+        <!-- [/Page Content] -->
+        <!-- [Footer Content] -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- [About Us] -->
+                        <div class="well">
+                            <h4>About Us</h4>
+                            <p>
+                                The Adventure Company is a nonprofit organization. In each location where we sponsor events, we carefully vet local conservation
+                                organizations so that our members have the opportunity to donate their money where it will do the most good on a
+                                local level.
+                            </p>
+                        </div>
+                        <!-- [/About Us] -->
+                    </div>
+                    <div class="col-md-4">
+                        <!-- [Meta Navigation] -->
+                        <ul class="nav nav-stacked">
+                            <li>
+                                <a href="Content-page.html" title="Legal Notice">Legal Notice</a>
+                            </li>
+                            <li>
+                                <a href="Content-page.html" title="Privacy Policy">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="Content-page.html" title="Terms and Conditions">Terms and Conditions</a>
+                            </li>
+                        </ul>
+                        <!-- [/Meta Navigation] -->
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- [Copyright] -->
+                            <small class="copyright">
+                                <span>Copyright &copy; 2016 Version 1.0.0.0</span>
+                            </small>
+                            <!-- [/Copyright] -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- [/Footer Content] -->
+    </div>
+    <script src="/Scripts/Sitecore.Foundation.Theming.min.js"></script>
+    <script src="/Scripts/Navigation.js"></script>
+</body>
+</html>

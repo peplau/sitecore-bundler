@@ -9,26 +9,25 @@ namespace SitecoreBundler.Cache
     {
         public static bool HasChanged(this Dictionary<ID, BundlerSettingsCache> cache, Bundler bundler)
         {
-            return !cache.ContainsKey(bundler.ID) 
-                || cache.ContainsKey(bundler.ID) && cache[bundler.ID].HasChanged(bundler);
+            return !cache.ContainsKey(bundler.ID) || cache[bundler.ID].HasChanged(bundler);
         }
 
         public static bool HasAgressiveCache(this Dictionary<ID, BundlerCache> cache, Bundler bundler)
         {
-            return !cache.ContainsKey(bundler.ID)
-                   || cache.ContainsKey(bundler.ID) && !string.IsNullOrEmpty(cache[bundler.ID].AgressiveCache);
+            if (!cache.ContainsKey(bundler.ID))
+                return false;
+                        
+            return !string.IsNullOrEmpty(cache[bundler.ID].AgressiveCache);
         }
 
         public static bool HasBundlesCache(this Dictionary<ID, BundlerCache> cache, Bundler bundler)
         {
-            return !cache.ContainsKey(bundler.ID)
-                   || cache.ContainsKey(bundler.ID) && cache[bundler.ID].Bundles.Any();
+            return cache.ContainsKey(bundler.ID) && cache[bundler.ID].Bundles.Any();
         }
 
         public static bool BundlerIsRegistered(this Dictionary<ID, BundlerCache> cache, Bundler bundler)
         {
-            return !cache.ContainsKey(bundler.ID)
-                   || cache.ContainsKey(bundler.ID) && cache[bundler.ID].BundlerRegistered;
+            return cache.ContainsKey(bundler.ID) && cache[bundler.ID].BundlerRegistered;
         }
 
         public static void Add(this Dictionary<ID, BundlerSettingsCache> cache, Bundler bundler)
