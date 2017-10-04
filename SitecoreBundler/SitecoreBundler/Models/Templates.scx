@@ -1,0 +1,27 @@
+﻿<CodeGeneration Generator="Template Class">
+  <shape designerX="19" designerY="13">
+    <template templatename="Bundler" templateid="{1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}" templateuri="/sc900rev170622/master/{1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}" classname="Bundler">
+      <section id="{9AE5E6C5-7CD1-4EAC-A5CD-9A5FE7E1EA38}" name="Bundler Config">
+        <field id="{4D311A3D-F02B-4AD3-B876-EC7BD3A508D6}" name="Layout" shared="0" source="/sitecore/layout/Layouts" type="Droptree" unversioned="0" propertyname="Layout" />
+        <field id="{65931423-93F8-440B-A292-6E2B38D3538B}" name="Bundle Local Path" shared="0" source="" type="Single-Line Text" unversioned="0" propertyname="BundleLocalPath" />
+        <field id="{89C046C2-4DF4-4AF4-B3AC-69E477279EA3}" name="Bundle" shared="0" source="" type="Checkbox" unversioned="0" propertyname="Bundle" />
+        <field id="{B70270E3-EA39-468F-9DB1-A14D2BD097EA}" name="Minify" shared="0" source="" type="Checkbox" unversioned="0" propertyname="Minify" />
+        <field id="{E7F1FF80-206D-46DC-8D92-97A92DD958B6}" name="Agressive Cache" shared="0" source="" type="Checkbox" unversioned="0" propertyname="AgressiveCache" />
+      </section>
+    </template>
+  </shape>
+  <shape designerX="267" designerY="128">
+    <template templatename="Javascript Bundler" templateid="{941080E4-0E64-4BD4-B216-B7A85A659BE6}" templateuri="/sc900rev170622/master/{941080E4-0E64-4BD4-B216-B7A85A659BE6}" classname="JavascriptBundler" />
+  </shape>
+  <shape designerX="266" designerY="159">
+    <template templatename="Css Bundler" templateid="{31C4438D-D6C6-4CF5-819A-3755CC29D2C1}" templateuri="/sc900rev170622/master/{31C4438D-D6C6-4CF5-819A-3755CC29D2C1}" classname="CssBundler" />
+  </shape>
+  <shape designerX="268" designerY="13">
+    <template templatename="_Base Bundle Group" templateid="{8F640C0E-BA86-41A5-9E95-8EAB419072A7}" templateuri="/sc900rev170622/master/{8F640C0E-BA86-41A5-9E95-8EAB419072A7}" classname="__BaseBundleGroup">
+      <section id="{B3E28B33-282F-48A6-8F31-1CFD0682B776}" name="Bundles">
+        <field id="{108171BF-254E-4987-89F4-5926ACD9F14E}" name="Bundles" shared="0" source="" type="Multi-Line Text" unversioned="0" propertyname="Bundles" />
+        <field id="{C82404D1-FD37-4BEE-A2B3-B51237F39F95}" name="Bundled Filename" shared="0" source="" type="Single-Line Text" unversioned="0" propertyname="BundledFilename" />
+      </section>
+    </template>
+  </shape>
+</CodeGeneration>

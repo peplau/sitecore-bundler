@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxMin">
+      <HintPath>..\Libs\CdnBundle\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="CdnBundle">
+      <HintPath>..\Libs\CdnBundle\CdnBundle.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -97,16 +103,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cache\BundlerCache.cs" />
+    <Compile Include="Cache\BundlerSettingsCache.cs" />
+    <Compile Include="Cache\CacheExtensions.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Models\Templates.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Templates.scx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Templates\Bundler.cs" />
+    <Compile Include="Models\Templates\__BaseBundleGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BundleRepository.cs" />
+    <Compile Include="SitecoreBundler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="App_Config\Include\Sitecore.Bundler.config" />
+    <Content Include="Models\Templates.scx.xslt">
+      <DependentUpon>Templates.scx</DependentUpon>
+    </Content>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Content Include="Models\Templates.scx">
+      <Generator>SitecoreCodeGenerator</Generator>
+      <LastGenOutput>Templates.Designer.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\Deploy local - DEBUG.pubxml" />
+    <None Include="Properties\PublishProfiles\Deploy Local - RELEASE.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
