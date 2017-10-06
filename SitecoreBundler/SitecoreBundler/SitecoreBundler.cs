@@ -6,9 +6,9 @@ using System.Web;
 using CdnBundle;
 using Sitecore.Data;
 using Sitecore.Diagnostics;
+using SitecoreBundler.Bundling;
 using SitecoreBundler.Cache;
 using SitecoreBundler.Models.Templates;
-using SitecoreBundler.Repository;
 
 namespace SitecoreBundler
 {
@@ -18,7 +18,7 @@ namespace SitecoreBundler
             new Dictionary<ID, BundlerSettingsCache>();
         private static readonly Dictionary<ID, BundlerCache> BundlerCache = new Dictionary<ID, BundlerCache>();
 
-        public static HtmlString Bundle(string filename)
+        public static HtmlString Bundle(this Sitecore.Mvc.Helpers.SitecoreHelper sitecoreHelper, string filename = "")
         {
             var ret = "";
 

@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Web;
 using Sitecore.Data;
+using Sitecore.Data.Items;
 using Sitecore.Diagnostics;
+using Sitecore.Mvc.Presentation;
 
 namespace SitecoreBundler.Models.Templates
 {
@@ -22,7 +24,7 @@ namespace SitecoreBundler.Models.Templates
                     {
                         var globalBundlerItem = Sitecore.Context.Database.GetItem(globalBundlerId);
                         if (globalBundlerItem != null)
-                            return new Models.Templates.Bundler(globalBundlerItem);
+                            return new Bundler(globalBundlerItem);
                     }
                 }
             }
@@ -36,9 +38,24 @@ namespace SitecoreBundler.Models.Templates
             try
             {
                 var contentStartPath = Sitecore.Context.Site.ContentStartPath;
-                var query = $"{contentStartPath}//*[@@templateid='{Models.Templates.Bundler.TemplateID}']";
-                var bundleItem = Sitecore.Context.Database.SelectSingleItem(query);
-                return bundleItem == null ? null : new Bundler(bundleItem);
+                contentStartPath = contentStartPath.Replace("/","#/#");
+                if (contentStartPath.StartsWith("#/"))
+                    contentStartPath = contentStartPath.Substring(1, contentStartPath.Length-1);
+                if (contentStartPath.EndsWith("/#"))
+                    contentStartPath = contentStartPath.Substring(0, contentStartPath.Length-2);
+                else if (!contentStartPath.EndsWith("#"))
+                    contentStartPath += "#";
+
+                var query = $"fast:{contentStartPath}//*[@@templateid='{TemplateID}' and (@Layout='{new ID(RenderingContext.Current.Rendering.LayoutId)}' or @Layout='')]";
+                var bundlerItems = Sitecore.Context.Database.SelectItems(query).Select(p => new Bundler(p)).ToArray();
+
+                Item bundlerItem = null;
+                if (bundlerItems.Any(p => p.Layout.TargetID.ToGuid() == RenderingContext.Current.Rendering.LayoutId))
+                    bundlerItem = bundlerItems.First(p => p.Layout.TargetID.ToGuid() == RenderingContext.Current.Rendering.LayoutId);
+                else if (bundlerItems.Any(p => p.Layout == null))
+                    bundlerItem = bundlerItems.First(p => p.Layout == null);
+
+                return bundlerItem == null ? null : new Bundler(bundlerItem);
             }
             catch (Exception e)
             {

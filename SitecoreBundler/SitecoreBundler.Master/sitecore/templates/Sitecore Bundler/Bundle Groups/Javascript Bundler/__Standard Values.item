@@ -1,27 +1,41 @@
 ----item----
 version: 1
-id: {B3E28B33-282F-48A6-8F31-1CFD0682B776}
+id: {A8CFE09A-1913-4259-9445-D36E2B38A188}
 database: master
-path: /sitecore/templates/Sitecore Bundler/_Base Bundle Group/Bundles
-parent: {8F640C0E-BA86-41A5-9E95-8EAB419072A7}
-name: Bundles
+path: /sitecore/templates/Sitecore Bundler/Bundle Groups/Javascript Bundler/__Standard Values
+parent: {941080E4-0E64-4BD4-B216-B7A85A659BE6}
+name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}
-template: {E269FBB5-3750-427A-9149-7AA950B49301}
-templatekey: Template section
-created: 20171004T174927Z
+template: {941080E4-0E64-4BD4-B216-B7A85A659BE6}
+templatekey: Javascript Bundler
+created: 20171004T175750Z
 
 ----version----
 language: en
 version: 1
-revision: fdc05fda-d7a1-4bd2-a24f-954ebefa12f0
+revision: 7f01543d-dfa5-4b62-bbd1-d7ed9d678ef6
 
+----field----
+field: {C82404D1-FD37-4BEE-A2B3-B51237F39F95}
+name: Bundled Filename
+key: bundled filename
+content-length: 5
+
+$name
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20171004T174927Z
+20171004T175750Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -35,14 +49,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-fdc05fda-d7a1-4bd2-a24f-954ebefa12f0
+7f01543d-dfa5-4b62-bbd1-d7ed9d678ef6
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171004T174927Z
+20171004T190540Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

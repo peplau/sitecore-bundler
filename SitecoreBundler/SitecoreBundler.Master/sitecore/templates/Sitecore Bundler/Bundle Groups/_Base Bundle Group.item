@@ -1,14 +1,14 @@
 ----item----
 version: 1
-id: {1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}
+id: {8F640C0E-BA86-41A5-9E95-8EAB419072A7}
 database: master
-path: /sitecore/templates/Sitecore Bundler/Bundler
-parent: {3CD47206-7B6E-4EE7-99A9-8D2D7A866B74}
-name: Bundler
+path: /sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group
+parent: {17743189-2748-47E2-A3C0-C1B63CF15C91}
+name: _Base Bundle Group
 master: {00000000-0000-0000-0000-000000000000}
 template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
 templatekey: Template
-created: 20171004T172711Z
+created: 20171004T174825Z
 
 ----field----
 field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
@@ -18,23 +18,23 @@ content-length: 38
 
 {1930BBEB-7805-471A-A3BE-4858AC7CF696}
 ----field----
-field: {F7D48A55-2158-4F02-9356-756654404F73}
-name: __Standard values
-key: __standard values
-content-length: 38
-
-{23E5D640-0B3D-4754-8A2A-35D24128DD04}
-----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
-content-length: 22
+content-length: 28
 
-Office/32x32/plug2.png
+People/32x32/cube_yellow.png
+----field----
+field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
+name: __Sortorder
+key: __sortorder
+content-length: 2
+
+50
 ----version----
 language: en
 version: 1
-revision: b524ec71-585e-4ea1-9ef3-398d1c64656b
+revision: a5214769-90bf-447e-80b4-7fc451272607
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -42,7 +42,7 @@ name: __Created
 key: __created
 content-length: 16
 
-20171004T172711Z
+20171004T174826Z
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -56,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-b524ec71-585e-4ea1-9ef3-398d1c64656b
+a5214769-90bf-447e-80b4-7fc451272607
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171005T212301Z
+20171005T212554Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

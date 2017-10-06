@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace SitecoreBundler.Repository
+namespace SitecoreBundler.Bundling
 {
     public class BundleRepository
     {
@@ -17,7 +17,7 @@ namespace SitecoreBundler.Repository
             {
                 var path = GetJsBundlePath(line);
                 var jsFile = GetBundleFile(path);
-                jsFile = !jsFile.EndsWith(".js") ? $"{jsFile}.css" : jsFile;
+                jsFile = !jsFile.EndsWith(".js") ? $"{jsFile}.js" : jsFile;
                 if (path == string.Empty)
                     continue;
 
@@ -54,19 +54,51 @@ namespace SitecoreBundler.Repository
             return bundles;
         }
 
+        private static string GetBundleFile(string path)
+        {
+            var parts = path.Split(new[] { "/" }, StringSplitOptions.None);
+            return GetValidFilename(parts.Last());
+        }
+
         private static string GetValidFilename(string rawName)
         {
             foreach (char c in System.IO.Path.GetInvalidFileNameChars())
                 rawName = rawName.Replace(c.ToString(), "");
+            if (rawName.Length > 50)
+                rawName = rawName.Substring(0, 50);
             return rawName;
+        }
+
+        private static XElement GetXmlFromString(string line)
+        {
+            XDocument document = null;
+            try
+            {
+                document = XDocument.Parse(line);
+            }
+            catch
+            {
+                if (line.EndsWith(">"))
+                {
+                    try
+                    {
+                        line = line.Insert(line.Length - 1, "/");
+                        document = XDocument.Parse(line);
+                    }
+                    catch
+                    {
+                        // ignored
+                    }
+                }
+            }
+            return document?.Root;
         }
 
         private static string GetCssBundlePath(string line)
         {
             try
             {
-                var document = XDocument.Parse(line);
-                var lineNode = document.Root;
+                var lineNode = GetXmlFromString(line);
                 if (lineNode == null)
                     return string.Empty;
 
@@ -89,18 +121,11 @@ namespace SitecoreBundler.Repository
             return string.Empty;
         }
 
-        private static string GetBundleFile(string path)
-        {
-            var parts = path.Split(new[] { "/" }, StringSplitOptions.None);
-            return GetValidFilename(parts.Last());
-        }
-
         private static string GetJsBundlePath(string line)
         {
             try
             {
-                var document = XDocument.Parse(line);
-                var lineNode = document.Root;
+                var lineNode = GetXmlFromString(line);
                 if (lineNode == null)
                     return string.Empty;
 

@@ -2,7 +2,7 @@
 version: 1
 id: {C344989F-3EC0-4632-9ED3-F966F03C69E3}
 database: master
-path: /sitecore/templates/Sitecore Bundler/Css Bundler/__Standard Values
+path: /sitecore/templates/Sitecore Bundler/Bundle Groups/Css Bundler/__Standard Values
 parent: {31C4438D-D6C6-4CF5-819A-3755CC29D2C1}
 name: __Standard Values
 master: {00000000-0000-0000-0000-000000000000}

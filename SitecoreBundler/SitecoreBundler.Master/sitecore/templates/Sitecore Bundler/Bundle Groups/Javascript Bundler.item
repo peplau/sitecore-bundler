@@ -1,14 +1,14 @@
 ----item----
 version: 1
-id: {31C4438D-D6C6-4CF5-819A-3755CC29D2C1}
+id: {941080E4-0E64-4BD4-B216-B7A85A659BE6}
 database: master
-path: /sitecore/templates/Sitecore Bundler/Css Bundler
-parent: {3CD47206-7B6E-4EE7-99A9-8D2D7A866B74}
-name: Css Bundler
+path: /sitecore/templates/Sitecore Bundler/Bundle Groups/Javascript Bundler
+parent: {17743189-2748-47E2-A3C0-C1B63CF15C91}
+name: Javascript Bundler
 master: {00000000-0000-0000-0000-000000000000}
 template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
 templatekey: Template
-created: 20171004T180036Z
+created: 20171004T175744Z
 
 ----field----
 field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
@@ -23,18 +23,18 @@ name: __Standard values
 key: __standard values
 content-length: 38
 
-{C344989F-3EC0-4632-9ED3-F966F03C69E3}
+{A8CFE09A-1913-4259-9445-D36E2B38A188}
 ----field----
 field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
 name: __Icon
 key: __icon
-content-length: 25
+content-length: 21
 
-Office/32x32/plug_lan.png
+office/32x32/plug.png
 ----version----
 language: en
 version: 1
-revision: a82d5dcf-0176-48b9-ad64-157ec1db0200
+revision: b14cba94-f60d-4cd0-8e82-c7785c75671b
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -56,14 +56,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-a82d5dcf-0176-48b9-ad64-157ec1db0200
+b14cba94-f60d-4cd0-8e82-c7785c75671b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171004T180337Z
+20171005T212102Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
