@@ -3,8 +3,8 @@ using System.Linq;
 using System.Web;
 using Sitecore.Data;
 using Sitecore.Data.Items;
-using Sitecore.Diagnostics;
 using Sitecore.Mvc.Presentation;
+using SitecoreBundler.Log;
 
 namespace SitecoreBundler.Models.Templates
 {
@@ -12,31 +12,32 @@ namespace SitecoreBundler.Models.Templates
     {
         public static Bundler GetBundler()
         {
+            var logger = new Logger();
+
             // Get bundler from GlobalBundlerItem
-            var globalBundler =
-                Sitecore.Configuration.Settings.GetSetting(Constants.SettingsKeys.GlobalBundlerItem);
+            var globalBundlerId = Settings.BundleSettings.GlobalBundlerItem;
             try
             {
-                if (!string.IsNullOrEmpty(globalBundler))
+                if (globalBundlerId != ID.Null)
                 {
-                    ID globalBundlerId;
-                    if (ID.TryParse(globalBundler, out globalBundlerId))
-                    {
-                        var globalBundlerItem = Sitecore.Context.Database.GetItem(globalBundlerId);
-                        if (globalBundlerItem != null)
-                            return new Bundler(globalBundlerItem);
-                    }
+                    logger.Start($"Get GlobalBundlerItem ID {globalBundlerId} from Sitecore");
+                    var globalBundlerItem = Sitecore.Context.Database.GetItem(globalBundlerId);
+                    logger.Finish();
+                    if (globalBundlerItem != null)
+                        return new Bundler(globalBundlerItem);
                 }
             }
             catch (Exception e)
             {
-                Log.Error($"Error getting Bundler from GlobalBundlerItem - Item ID: {globalBundler}", e, e.GetType());
+                Sitecore.Diagnostics.Log.Error(
+                    $"[SitecoreBundler] Error getting Bundler from GlobalBundlerItem - Item ID: {globalBundlerId}", e, e.GetType());
                 return null;
             }
 
             // Get Bundler relative to the current website
             try
             {
+                // Format path to safe quering
                 var contentStartPath = Sitecore.Context.Site.ContentStartPath;
                 contentStartPath = contentStartPath.Replace("/","#/#");
                 if (contentStartPath.StartsWith("#/"))
@@ -46,21 +47,29 @@ namespace SitecoreBundler.Models.Templates
                 else if (!contentStartPath.EndsWith("#"))
                     contentStartPath += "#";
 
-                var query = $"fast:{contentStartPath}//*[@@templateid='{TemplateID}' and (@Layout='{new ID(RenderingContext.Current.Rendering.LayoutId)}' or @Layout='')]";
+                // Execute query and get all possible options
+                var query =
+                    $"fast:{contentStartPath}//*[@@templateid='{TemplateID}' and (@Layout='{new ID(RenderingContext.Current.Rendering.LayoutId)}' or @Layout='')]";
+                logger.Start($"Get Bundle Item - Step 1: fast query ({query})");
                 var bundlerItems = Sitecore.Context.Database.SelectItems(query).Select(p => new Bundler(p)).ToArray();
+                logger.Finish();
 
+                // Get proper bundlerItem using LINQ
+                logger.Start($"Get Bundle Item - Step 2: LINQ filter ({query})");
                 Item bundlerItem = null;
                 if (bundlerItems.Any(p => p.Layout.TargetID.ToGuid() == RenderingContext.Current.Rendering.LayoutId))
-                    bundlerItem = bundlerItems.First(p => p.Layout.TargetID.ToGuid() == RenderingContext.Current.Rendering.LayoutId);
+                    bundlerItem = bundlerItems.First(p =>
+                        p.Layout.TargetID.ToGuid() == RenderingContext.Current.Rendering.LayoutId);
                 else if (bundlerItems.Any(p => p.Layout == null))
                     bundlerItem = bundlerItems.First(p => p.Layout == null);
+                logger.Finish();
 
                 return bundlerItem == null ? null : new Bundler(bundlerItem);
             }
             catch (Exception e)
             {
-                Log.Error(
-                    $"Error getting Bundler relative to current website - Website name: {Sitecore.Context.Site.Name}",
+                Sitecore.Diagnostics.Log.Error(
+                    $"[SitecoreBundler] Error getting Bundler relative to current website - Website name: {Sitecore.Context.Site.Name}",
                     e, e.GetType());
                 return null;
             }

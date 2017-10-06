@@ -5,39 +5,42 @@ using System.Linq;
 using System.Web;
 using CdnBundle;
 using Sitecore.Data;
-using Sitecore.Diagnostics;
-using SitecoreBundler.Bundling;
+using SitecoreBundler.Bundling.Repository;
 using SitecoreBundler.Cache;
+using SitecoreBundler.Log;
 using SitecoreBundler.Models.Templates;
 
-namespace SitecoreBundler
+namespace SitecoreBundler.Bundling
 {
-    public static class SitecoreBundler
+    public class SitecoreBundler
     {
-        private static readonly Dictionary<ID, BundlerSettingsCache> BundlerSettingsCache =
-            new Dictionary<ID, BundlerSettingsCache>();
-        private static readonly Dictionary<ID, BundlerCache> BundlerCache = new Dictionary<ID, BundlerCache>();
-
-        public static HtmlString Bundle(this Sitecore.Mvc.Helpers.SitecoreHelper sitecoreHelper, string filename = "")
+        private readonly IBundleRepository _bundleRepository;
+        public SitecoreBundler(IBundleRepository bundleRepository)
         {
-            var ret = "";
+            _bundleRepository = bundleRepository;
+        }
+        public SitecoreBundler() : this(new BundleRepository()) { }
 
-            // Get current bundler
-            var bundler = Bundler.GetBundler();
-            if (bundler==null)
-                return new HtmlString(ret);
-
-            // Get Bundle Group from filename
-            var bundleGroup = bundler.GetBundleGroup(filename);
-            if (bundleGroup == null)
-                return new HtmlString(ret);
-
-            ret = GetBundleString(bundler, bundleGroup, filename);
-            return new HtmlString(ret);
+        private static SitecoreBundler _instance;
+        public static SitecoreBundler Instance
+        {
+            get
+            {
+                if (_instance != null)
+                    return _instance;
+                _instance = new SitecoreBundler();
+                return _instance;
+            }
         }
 
-        private static string GetBundleString(Bundler bundler, __BaseBundleGroup bundleGroup, string filename)
+        internal static readonly Dictionary<ID, BundlerSettingsCache> BundlerSettingsCache =
+            new Dictionary<ID, BundlerSettingsCache>();
+        internal static readonly Dictionary<ID, BundlerCache> BundlerCache = new Dictionary<ID, BundlerCache>();
+
+        internal string GetBundleString(Bundler bundler, __BaseBundleGroup bundleGroup, string filename)
         {
+            var logger = new Logger();
+
             // Clean up caches (filesystem and memory) if any change at the setup occured
             SetupBundleCache(bundler);
 
@@ -55,31 +58,38 @@ namespace SitecoreBundler
                 bundles = BundlerCache[bundler.ID].Bundles;
             else
             {
+                logger.Start("Get bundles using GetJavascriptBundle or GetCssBundle");
                 bundles = bundleGroup.InnerItem.TemplateID == JavascriptBundler.TemplateID
-                    ? BundleRepository.GetJavascriptBundle(bundleGroup.Bundles, bundler.BundleLocalPath, bundler.Minify)
-                    : BundleRepository.GetCssBundle(bundleGroup.Bundles, bundler.BundleLocalPath, bundler.Minify);
+                    ? _bundleRepository.GetJavascriptBundle(bundleGroup.Bundles, bundler.BundleLocalPath, bundler.Minify)
+                    : _bundleRepository.GetCssBundle(bundleGroup.Bundles, bundler.BundleLocalPath, bundler.Minify);
                 BundlerCache[bundler.ID] = new BundlerCache
                 {
                     Bundles = bundles,
                     BundlerRegistered = true
                 };
+                logger.Finish();
             }
 
             // Process and render
+            logger.Start("Process and render bundles");
             var ret = bundles != null && bundles.Any()
                 ? bundles.Load($"{bundler.BundleLocalPath}/{filename}")
                 : string.Empty;
             BundlerCache[bundler.ID].AgressiveCache = ret;
+            logger.Finish();
+
             return ret;
         }
 
-        private static void SetupBundleCache(Bundler bundler)
+        private void SetupBundleCache(Bundler bundler)
         {
             // Clean up bundle Cache if needed
             if (BundlerSettingsCache.HasChanged(bundler))
             {
-                BundlerSettingsCache.Add(bundler);
+                var logger = new Logger();
+                logger.Start("SetupBundleCache");
 
+                BundlerSettingsCache.Add(bundler);
                 try
                 {
                     // Clean up caches in memory
@@ -99,16 +109,18 @@ namespace SitecoreBundler
                         }
                         catch(Exception e)
                         {
-                            Log.Error(
-                                $"Cannot delete file '{file.Name}' while cleaning bundle folder {bundler.BundleLocalAbsolutePath}",
+                            Sitecore.Diagnostics.Log.Error(
+                                $"[SitecoreBundler] Cannot delete file '{file.Name}' while cleaning bundle folder {bundler.BundleLocalAbsolutePath}",
                                 e,e.GetType());
                         }
                     }
                 }
                 catch (Exception e)
                 {
-                    Log.Error($"Error cleaning up folder {bundler.BundleLocalAbsolutePath}", e, e.GetType());
+                    Sitecore.Diagnostics.Log.Error($"[SitecoreBundler] Error cleaning up folder {bundler.BundleLocalAbsolutePath}", e, e.GetType());
                 }
+
+                logger.Finish();
             }
         }
     }

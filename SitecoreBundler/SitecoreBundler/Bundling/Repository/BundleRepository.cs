@@ -4,11 +4,11 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 
-namespace SitecoreBundler.Bundling
+namespace SitecoreBundler.Bundling.Repository
 {
-    public class BundleRepository
+    public class BundleRepository : IBundleRepository
     {
-        public static List<CdnBundle.Bundle> GetJavascriptBundle(string bundleBlock, string localPath, bool minify)
+        public List<CdnBundle.Bundle> GetJavascriptBundle(string bundleBlock, string localPath, bool minify)
         {
             var bundles = new List<CdnBundle.Bundle>();
 
@@ -31,7 +31,7 @@ namespace SitecoreBundler.Bundling
             return bundles;
         }
 
-        public static List<CdnBundle.Bundle> GetCssBundle(string bundleBlock, string localPath, bool minify)
+        public List<CdnBundle.Bundle> GetCssBundle(string bundleBlock, string localPath, bool minify)
         {
             var bundles = new List<CdnBundle.Bundle>();
 
