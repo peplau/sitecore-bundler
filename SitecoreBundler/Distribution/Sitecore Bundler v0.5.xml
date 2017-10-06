@@ -1,0 +1,76 @@
+<project>
+  <Metadata>
+    <metadata>
+      <PackageName>Sitecore Bundler</PackageName>
+      <Author>Rodrigo Peplau</Author>
+      <Version>0.5</Version>
+      <Revision />
+      <License />
+      <Comment />
+      <Attributes />
+      <Readme />
+      <Publisher />
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xfiles>
+      <Entries>
+        <x-item>/App_Config/Include/Sitecore.Bundler.config</x-item>
+        <x-item>/bin/AjaxMin.dll</x-item>
+        <x-item>/bin/CdnBundle.dll</x-item>
+        <x-item>/bin/SitecoreBundler.dll</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms />
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files</Name>
+    </xfiles>
+    <xitems>
+      <Entries>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/{3CD47206-7B6E-4EE7-99A9-8D2D7A866B74}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/{8F640C0E-BA86-41A5-9E95-8EAB419072A7}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/{B3E28B33-282F-48A6-8F31-1CFD0682B776}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/Bundled Filename/{C82404D1-FD37-4BEE-A2B3-B51237F39F95}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/Bundles/{108171BF-254E-4987-89F4-5926ACD9F14E}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/{17743189-2748-47E2-A3C0-C1B63CF15C91}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/Css Bundler/__Standard Values/{C344989F-3EC0-4632-9ED3-F966F03C69E3}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/Css Bundler/{31C4438D-D6C6-4CF5-819A-3755CC29D2C1}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/Javascript Bundler/__Standard Values/{A8CFE09A-1913-4259-9445-D36E2B38A188}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/Javascript Bundler/{941080E4-0E64-4BD4-B216-B7A85A659BE6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/__Standard Values/{23E5D640-0B3D-4754-8A2A-35D24128DD04}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/{1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/{9AE5E6C5-7CD1-4EAC-A5CD-9A5FE7E1EA38}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Agressive Cache/{E7F1FF80-206D-46DC-8D92-97A92DD958B6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Bundle Local Path/{65931423-93F8-440B-A292-6E2B38D3538B}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Bundle/{89C046C2-4DF4-4AF4-B3AC-69E477279EA3}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Layout/{4D311A3D-F02B-4AD3-B876-EC7BD3A508D6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Minify/{B70270E3-EA39-468F-9DB1-A14D2BD097EA}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms />
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Templates</Name>
+    </xitems>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>
