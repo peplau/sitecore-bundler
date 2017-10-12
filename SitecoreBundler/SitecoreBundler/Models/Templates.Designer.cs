@@ -22,6 +22,124 @@ namespace SitecoreBundler.Models.Templates
   using Sitecore.Data;
   
       
+  /// <summary>Represents the "_Base Bundle Group" template.</summary>
+  public partial class __BaseBundleGroup : CustomItem
+  {
+    public static readonly ID TemplateID = ID.Parse("{8F640C0E-BA86-41A5-9E95-8EAB419072A7}");
+
+    public __BaseBundleGroup(Item item) : base(item) {
+    }
+
+    public static class FieldIds {
+      
+      public static readonly ID Bundles = ID.Parse("{108171BF-254E-4987-89F4-5926ACD9F14E}");
+
+      public static readonly ID BundledFilename = ID.Parse("{C82404D1-FD37-4BEE-A2B3-B51237F39F95}");
+
+      public static readonly ID Bundle = ID.Parse("{C7630412-27CA-4A28-A8AF-485CB2B543E6}");
+
+      public static readonly ID Minify = ID.Parse("{F81E5C28-3DF7-4766-901D-54A9C9BFA1C5}");
+
+      public static readonly ID AgressiveCache = ID.Parse("{AEAB6ABC-ECAA-4168-9935-07F77393C0DE}");
+
+    }
+    
+    /// <summary>Gets or sets the "Bundles" field.</summary>
+    public string Bundles 
+    {
+      get 
+      {
+        return this.InnerItem[FieldIds.Bundles];
+      }
+      set
+      {
+        this.InnerItem[FieldIds.Bundles] = value;
+      }
+    }
+  
+    /// <summary>Gets or sets the "Bundled Filename" field.</summary>
+    public string BundledFilename 
+    {
+      get 
+      {
+        return this.InnerItem[FieldIds.BundledFilename];
+      }
+      set
+      {
+        this.InnerItem[FieldIds.BundledFilename] = value;
+      }
+    }
+  
+    /// <summary>Gets or sets the "Bundle" field.</summary>
+    public bool Bundle 
+    {
+      get 
+      {
+        return MainUtil.GetBool(this.InnerItem[FieldIds.Bundle], false);
+      }
+      set 
+      {
+        this.InnerItem[FieldIds.Bundle] = value ? "1" : string.Empty;
+      }
+    }
+  
+    /// <summary>Gets or sets the "Minify" field.</summary>
+    public bool Minify 
+    {
+      get 
+      {
+        return MainUtil.GetBool(this.InnerItem[FieldIds.Minify], false);
+      }
+      set 
+      {
+        this.InnerItem[FieldIds.Minify] = value ? "1" : string.Empty;
+      }
+    }
+  
+    /// <summary>Gets or sets the "Agressive Cache" field.</summary>
+    public bool AgressiveCache 
+    {
+      get 
+      {
+        return MainUtil.GetBool(this.InnerItem[FieldIds.AgressiveCache], false);
+      }
+      set 
+      {
+        this.InnerItem[FieldIds.AgressiveCache] = value ? "1" : string.Empty;
+      }
+    }
+  
+    public static __BaseBundleGroup Create(Item item) 
+    {
+      return new __BaseBundleGroup(item);
+    }
+
+    public static implicit operator Item (__BaseBundleGroup item)
+    {
+      if (item == null)
+      {
+        return null;
+      }
+
+      return item.InnerItem;
+    }
+
+    public static explicit operator __BaseBundleGroup(Item item)
+    {
+      if (item == null)
+      {
+        return null;
+      }
+
+      if (item.TemplateID != TemplateID)
+      {
+        return null;
+      }
+
+      return Create(item);
+    }
+  }
+      
   /// <summary>Represents the "Bundler" template.</summary>
   public partial class Bundler : CustomItem
   {
@@ -66,42 +184,30 @@ namespace SitecoreBundler.Models.Templates
       }
     }
   
-    /// <summary>Gets or sets the "Bundle" field.</summary>
-    public bool Bundle 
+    /// <summary>Gets the "Bundle" field.</summary>
+    public LookupField Bundle 
     {
       get 
       {
-        return MainUtil.GetBool(this.InnerItem[FieldIds.Bundle], false);
-      }
-      set 
-      {
-        this.InnerItem[FieldIds.Bundle] = value ? "1" : string.Empty;
+        return this.InnerItem.Fields[FieldIds.Bundle];
       }
     }
   
-    /// <summary>Gets or sets the "Minify" field.</summary>
-    public bool Minify 
+    /// <summary>Gets the "Minify" field.</summary>
+    public LookupField Minify 
     {
       get 
       {
-        return MainUtil.GetBool(this.InnerItem[FieldIds.Minify], false);
-      }
-      set 
-      {
-        this.InnerItem[FieldIds.Minify] = value ? "1" : string.Empty;
+        return this.InnerItem.Fields[FieldIds.Minify];
       }
     }
   
-    /// <summary>Gets or sets the "Agressive Cache" field.</summary>
-    public bool AgressiveCache 
+    /// <summary>Gets the "Agressive Cache" field.</summary>
+    public LookupField AgressiveCache 
     {
       get 
       {
-        return MainUtil.GetBool(this.InnerItem[FieldIds.AgressiveCache], false);
-      }
-      set 
-      {
-        this.InnerItem[FieldIds.AgressiveCache] = value ? "1" : string.Empty;
+        return this.InnerItem.Fields[FieldIds.AgressiveCache];
       }
     }
   
@@ -222,54 +328,54 @@ namespace SitecoreBundler.Models.Templates
     }
   }
       
-  /// <summary>Represents the "_Base Bundle Group" template.</summary>
-  public partial class __BaseBundleGroup : CustomItem
+  /// <summary>Represents the "Dictionary entry" template.</summary>
+  public partial class DictionaryEntry : CustomItem
   {
-    public static readonly ID TemplateID = ID.Parse("{8F640C0E-BA86-41A5-9E95-8EAB419072A7}");
+    public static readonly ID TemplateID = ID.Parse("{6D1CD897-1936-4A3A-A511-289A94C2A7B1}");
 
-    public __BaseBundleGroup(Item item) : base(item) {
+    public DictionaryEntry(Item item) : base(item) {
     }
 
     public static class FieldIds {
       
-      public static readonly ID Bundles = ID.Parse("{108171BF-254E-4987-89F4-5926ACD9F14E}");
+      public static readonly ID Key = ID.Parse("{580C75A8-C01A-4580-83CB-987776CEB3AF}");
 
-      public static readonly ID BundledFilename = ID.Parse("{C82404D1-FD37-4BEE-A2B3-B51237F39F95}");
+      public static readonly ID Phrase = ID.Parse("{2BA3454A-9A9C-4CDF-A9F8-107FD484EB6E}");
 
     }
     
-    /// <summary>Gets or sets the "Bundles" field.</summary>
-    public string Bundles 
+    /// <summary>Gets or sets the "Key" field.</summary>
+    public string Key 
     {
       get 
       {
-        return this.InnerItem[FieldIds.Bundles];
+        return this.InnerItem[FieldIds.Key];
       }
       set
       {
-        this.InnerItem[FieldIds.Bundles] = value;
+        this.InnerItem[FieldIds.Key] = value;
       }
     }
   
-    /// <summary>Gets or sets the "Bundled Filename" field.</summary>
-    public string BundledFilename 
+    /// <summary>Gets or sets the "Phrase" field.</summary>
+    public string Phrase 
     {
       get 
       {
-        return this.InnerItem[FieldIds.BundledFilename];
+        return this.InnerItem[FieldIds.Phrase];
       }
       set
       {
-        this.InnerItem[FieldIds.BundledFilename] = value;
+        this.InnerItem[FieldIds.Phrase] = value;
       }
     }
   
-    public static __BaseBundleGroup Create(Item item) 
+    public static DictionaryEntry Create(Item item) 
     {
-      return new __BaseBundleGroup(item);
+      return new DictionaryEntry(item);
     }
 
-    public static implicit operator Item (__BaseBundleGroup item)
+    public static implicit operator Item (DictionaryEntry item)
     {
       if (item == null)
       {
@@ -279,7 +385,7 @@ namespace SitecoreBundler.Models.Templates
       return item.InnerItem;
     }
 
-    public static explicit operator __BaseBundleGroup(Item item)
+    public static explicit operator DictionaryEntry(Item item)
     {
       if (item == null)
       {

@@ -20,7 +20,7 @@ content-length: 77
 ----version----
 language: en
 version: 1
-revision: 6cbc532d-f15a-452e-b4a0-c8d795108a93
+revision: 991d0726-21fa-463a-adae-cdd8ed9b643c
 
 ----field----
 field: {65931423-93F8-440B-A292-6E2B38D3538B}
@@ -29,6 +29,27 @@ key: bundle local path
 content-length: 8
 
 ~/bundle
+----field----
+field: {89C046C2-4DF4-4AF4-B3AC-69E477279EA3}
+name: Bundle
+key: bundle
+content-length: 38
+
+{1E6C31F3-2995-4766-9FFB-630116FD0E4A}
+----field----
+field: {B70270E3-EA39-468F-9DB1-A14D2BD097EA}
+name: Minify
+key: minify
+content-length: 38
+
+{02508244-4ACF-4FF5-AFDD-95A2694A631D}
+----field----
+field: {E7F1FF80-206D-46DC-8D92-97A92DD958B6}
+name: Agressive Cache
+key: agressive cache
+content-length: 38
+
+{1A5E1725-2ACB-41F3-A386-49C367307C55}
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -56,14 +77,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-6cbc532d-f15a-452e-b4a0-c8d795108a93
+991d0726-21fa-463a-adae-cdd8ed9b643c
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171004T182842Z
+20171012T132720Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

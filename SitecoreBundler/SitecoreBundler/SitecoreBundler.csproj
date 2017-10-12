@@ -111,8 +111,8 @@
   <ItemGroup>
     <Compile Include="BundlerExtensions.cs" />
     <Compile Include="Bundling\Repository\IBundleRepository.cs" />
+    <Compile Include="Cache\BundleGroupCache.cs" />
     <Compile Include="Cache\BundlerCache.cs" />
-    <Compile Include="Cache\BundlerSettingsCache.cs" />
     <Compile Include="Cache\CacheExtensions.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Log\Logger.cs" />

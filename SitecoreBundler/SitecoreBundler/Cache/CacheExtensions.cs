@@ -7,32 +7,46 @@ namespace SitecoreBundler.Cache
 {
     public static class CacheExtensions
     {
-        public static bool HasChanged(this Dictionary<ID, BundlerSettingsCache> cache, Bundler bundler)
+        public static bool HasChanged(this Dictionary<ID, BundlerCache> cache, Bundler bundler)
         {
             return !cache.ContainsKey(bundler.ID) || cache[bundler.ID].HasChanged(bundler);
         }
 
-        public static bool HasAgressiveCache(this Dictionary<ID, BundlerCache> cache, Bundler bundler)
+        public static bool HasChanged(this Dictionary<ID, BundleGroupCache> cache, __BaseBundleGroup bundleGroup)
         {
-            if (!cache.ContainsKey(bundler.ID))
-                return false;
-                        
-            return !string.IsNullOrEmpty(cache[bundler.ID].AgressiveCache);
+            return !cache.ContainsKey(bundleGroup.ID) || cache[bundleGroup.ID].HasChanged(bundleGroup);
         }
 
-        public static bool HasBundlesCache(this Dictionary<ID, BundlerCache> cache, Bundler bundler)
+        public static bool HasChangedAnyGroup(this Dictionary<ID, BundleGroupCache> cache, Bundler bundler)
         {
-            return cache.ContainsKey(bundler.ID) && cache[bundler.ID].Bundles.Any();
+            foreach (var bundleGroup in bundler.GetBundleGroups())
+            {
+                if (!cache.ContainsKey(bundleGroup.ID))
+                    return true;
+                if (cache[bundleGroup.ID].HasChanged(bundleGroup))
+                    return true;
+            }
+            return false;
         }
 
-        public static bool BundlerIsRegistered(this Dictionary<ID, BundlerCache> cache, Bundler bundler)
+        public static bool HasAgressiveCacheOnCache(this Dictionary<ID, BundleGroupCache> cache, __BaseBundleGroup bundleGroup)
         {
-            return cache.ContainsKey(bundler.ID) && cache[bundler.ID].BundlerRegistered;
+            return cache.ContainsKey(bundleGroup.ID) && !string.IsNullOrEmpty(cache[bundleGroup.ID].AgressiveCacheContent); 
         }
 
-        public static void Add(this Dictionary<ID, BundlerSettingsCache> cache, Bundler bundler)
+        public static bool HasBundlesOnCache(this Dictionary<ID, BundleGroupCache> cache, __BaseBundleGroup bundleGroup)
         {
-            cache[bundler.ID] = new BundlerSettingsCache(bundler);
+            return cache.ContainsKey(bundleGroup.ID) && cache[bundleGroup.ID].Bundles.Any();
+        }
+
+        public static bool BundlerIsRegistered(this Dictionary<ID, BundleGroupCache> cache, __BaseBundleGroup bundleGroup)
+        {
+            return cache.ContainsKey(bundleGroup.ID) && cache[bundleGroup.ID].BundlerRegistered;
+        }
+
+        public static void Add(this Dictionary<ID, BundlerCache> cache, Bundler bundler)
+        {
+            cache[bundler.ID] = new BundlerCache(bundler);
         }
     }
 }

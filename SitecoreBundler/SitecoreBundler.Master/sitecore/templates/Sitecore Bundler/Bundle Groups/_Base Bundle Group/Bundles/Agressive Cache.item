@@ -1,14 +1,14 @@
 ----item----
 version: 1
-id: {89C046C2-4DF4-4AF4-B3AC-69E477279EA3}
+id: {AEAB6ABC-ECAA-4168-9935-07F77393C0DE}
 database: master
-path: /sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Bundle
-parent: {9AE5E6C5-7CD1-4EAC-A5CD-9A5FE7E1EA38}
-name: Bundle
+path: /sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/Agressive Cache
+parent: {B3E28B33-282F-48A6-8F31-1CFD0682B776}
+name: Agressive Cache
 master: {00000000-0000-0000-0000-000000000000}
 template: {455A3E98-A627-4B40-8035-E683A0331AC7}
 templatekey: Template field
-created: 20171004T173021Z
+created: 20171011T214535Z
 
 ----field----
 field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
@@ -16,61 +16,61 @@ name: Type
 key: type
 content-length: 8
 
-Droplink
+Checkbox
 ----field----
 field: {1EB8AE32-E190-44A6-968D-ED904C794EBF}
 name: Source
 key: source
-content-length: 67
+content-length: 0
 
-/sitecore/system/Dictionary/Sitecore Bundler/Bundler Bundle Options
+
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
 key: __sortorder
 content-length: 3
 
-300
+500
 ----version----
 language: en
 version: 1
-revision: dc4167af-9888-4ceb-8a6c-ad89bd16e433
+revision: f7d92ab7-75b3-407d-ad26-d9aaac3ef58b
 
 ----field----
 field: {577F1689-7DE4-4AD2-A15F-7FDC1759285F}
 name: __Long description
 key: __long description
-content-length: 71
+content-length: 97
 
-If enabled will bundle Javascript and Css references into a single file
+If checked CDN bundled files are processed only once. Otherwise they are processed every 24 hours
 ----field----
 field: {9541E67D-CE8C-4225-803D-33F7F29F09EF}
 name: __Short description
 key: __short description
-content-length: 71
+content-length: 97
 
-If enabled will bundle Javascript and Css references into a single file
+If checked CDN bundled files are processed only once. Otherwise they are processed every 24 hours
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 16
 
-20171004T173021Z
+20171004T173022Z
 ----field----
 field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
 name: __Revision
 key: __revision
 content-length: 36
 
-dc4167af-9888-4ceb-8a6c-ad89bd16e433
+f7d92ab7-75b3-407d-ad26-d9aaac3ef58b
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171012T133006Z
+20171012T132810Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

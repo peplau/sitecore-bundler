@@ -16,7 +16,14 @@ name: Type
 key: type
 content-length: 8
 
-Checkbox
+Droplink
+----field----
+field: {1EB8AE32-E190-44A6-968D-ED904C794EBF}
+name: Source
+key: source
+content-length: 67
+
+/sitecore/system/Dictionary/Sitecore Bundler/Bundler Minify Options
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
@@ -27,22 +34,22 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: 562bc7df-7273-4e6c-b021-ba67604d50c1
+revision: 9e63a074-c029-42ac-b367-a10e407d2cd3
 
 ----field----
 field: {577F1689-7DE4-4AD2-A15F-7FDC1759285F}
 name: __Long description
 key: __long description
-content-length: 46
+content-length: 45
 
-If checked the embedded files will be minified
+If enabled the bundled files will be minified
 ----field----
 field: {9541E67D-CE8C-4225-803D-33F7F29F09EF}
 name: __Short description
 key: __short description
-content-length: 46
+content-length: 45
 
-If checked the embedded files will be minified
+If enabled the bundled files will be minified
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
@@ -56,14 +63,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-562bc7df-7273-4e6c-b021-ba67604d50c1
+9e63a074-c029-42ac-b367-a10e407d2cd3
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171004T174533Z
+20171012T133021Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

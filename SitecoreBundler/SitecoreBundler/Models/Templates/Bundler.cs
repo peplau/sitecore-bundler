@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Sitecore.Data;
@@ -10,6 +11,26 @@ namespace SitecoreBundler.Models.Templates
 {
     public partial class Bundler
     {
+        public bool IsBundleEnabled => BundleEnabled.HasValue && BundleEnabled.Value;
+        public bool IsMinifyEnabled => MinifyEnabled.HasValue && MinifyEnabled.Value;
+        public bool IsAgressiveCacheEnabled => AgressiveCacheEnabled.HasValue && AgressiveCacheEnabled.Value;
+        public bool? BundleEnabled => GetBoolFromDictionary(Bundle.TargetItem);
+        public bool? MinifyEnabled => GetBoolFromDictionary(Minify.TargetItem);
+        public bool? AgressiveCacheEnabled => GetBoolFromDictionary(AgressiveCache.TargetItem);
+
+        private bool? GetBoolFromDictionary(Item dicItem)
+        {
+            if (dicItem == null || dicItem.TemplateID != DictionaryEntry.TemplateID)
+                return null;
+            var dicEntry = new DictionaryEntry(dicItem);
+            if (string.IsNullOrEmpty(dicEntry.Phrase))
+                return null;
+            bool result;
+            if (!bool.TryParse(dicEntry.Phrase, out result))
+                return null;
+            return result;
+        }
+
         public static Bundler GetBundler()
         {
             var logger = new Logger();
@@ -73,6 +94,13 @@ namespace SitecoreBundler.Models.Templates
                     e, e.GetType());
                 return null;
             }
+        }
+
+        public List<__BaseBundleGroup> GetBundleGroups()
+        {
+            return this.InnerItem.Children
+                .Where(p => p.TemplateID == JavascriptBundler.TemplateID || p.TemplateID == CssBundler.TemplateID)
+                .Select(p => new __BaseBundleGroup(p)).ToList();
         }
 
         public __BaseBundleGroup GetBundleGroup(string filename)
