@@ -1,0 +1,101 @@
+<project>
+  <Metadata>
+    <metadata>
+      <PackageName>Sitecore Bundler</PackageName>
+      <Author>Rodrigo Peplau</Author>
+      <Version>0.6</Version>
+      <Revision />
+      <License />
+      <Comment />
+      <Attributes />
+      <Readme />
+      <Publisher />
+      <PostStep />
+      <PackageID />
+    </metadata>
+  </Metadata>
+  <SaveProject>True</SaveProject>
+  <Sources>
+    <xfiles>
+      <Entries>
+        <x-item>/App_Config/Include/Sitecore.Bundler.config</x-item>
+        <x-item>/bin/AjaxMin.dll</x-item>
+        <x-item>/bin/CdnBundle.dll</x-item>
+        <x-item>/bin/SitecoreBundler.dll</x-item>
+      </Entries>
+      <Converter>
+        <FileToEntryConverter>
+          <Root>/</Root>
+          <Transforms>
+            <InstallerConfigurationTransform>
+              <Options>
+                <BehaviourOptions>
+                  <ItemMode>Undefined</ItemMode>
+                  <ItemMergeMode>Undefined</ItemMergeMode>
+                </BehaviourOptions>
+              </Options>
+            </InstallerConfigurationTransform>
+          </Transforms>
+        </FileToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Files</Name>
+    </xfiles>
+    <xitems>
+      <Entries>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/{3092EB03-95C9-418A-A1A3-80B1719F0D8D}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Agressive Cache Options/{7DBF9623-7943-47E8-A5CF-48B4DF76A0B8}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Agressive Cache Options/All disabled/{5CAA11F4-2AF3-4B42-97B7-7738560C1DAC}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Agressive Cache Options/All enabled/{24CB1674-0DE2-4262-8A35-30DDF02B9BFB}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Agressive Cache Options/Respect Bundle Group settings/{1A5E1725-2ACB-41F3-A386-49C367307C55}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Bundle Options/{F88BB3EA-EB10-4E3C-9145-93A482B8FD71}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Bundle Options/Bundle all/{9AA52676-0577-4CA9-B7C1-40C5FA5BF403}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Bundle Options/Bundle disabled/{AF095E32-D73B-47BC-8B34-9057665EDAF7}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Bundle Options/Respect Bundle Group settings/{1E6C31F3-2995-4766-9FFB-630116FD0E4A}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Minify Options/{FCEF1A63-72FD-46B4-B35A-D1671626C32B}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Minify Options/Minify all/{081D4BF3-9FE7-42A2-9457-B71ACEE10A83}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Minify Options/Minify disabled/{75D80197-A4E0-48A9-BDF1-1CF95AC317B2}/invariant/0</x-item>
+        <x-item>/master/sitecore/system/Dictionary/Sitecore Bundler/Bundler Minify Options/Respect Bundle Group settings/{02508244-4ACF-4FF5-AFDD-95A2694A631D}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/{3CD47206-7B6E-4EE7-99A9-8D2D7A866B74}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/{8F640C0E-BA86-41A5-9E95-8EAB419072A7}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/{B3E28B33-282F-48A6-8F31-1CFD0682B776}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/Agressive Cache/{AEAB6ABC-ECAA-4168-9935-07F77393C0DE}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/Bundle/{C7630412-27CA-4A28-A8AF-485CB2B543E6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/Bundled Filename/{C82404D1-FD37-4BEE-A2B3-B51237F39F95}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/Bundles/{108171BF-254E-4987-89F4-5926ACD9F14E}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/_Base Bundle Group/Bundles/Minify/{F81E5C28-3DF7-4766-901D-54A9C9BFA1C5}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/{17743189-2748-47E2-A3C0-C1B63CF15C91}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/Css Bundler/__Standard Values/{C344989F-3EC0-4632-9ED3-F966F03C69E3}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/Css Bundler/{31C4438D-D6C6-4CF5-819A-3755CC29D2C1}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/Javascript Bundler/__Standard Values/{A8CFE09A-1913-4259-9445-D36E2B38A188}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundle Groups/Javascript Bundler/{941080E4-0E64-4BD4-B216-B7A85A659BE6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/__Standard Values/{23E5D640-0B3D-4754-8A2A-35D24128DD04}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/{1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/{9AE5E6C5-7CD1-4EAC-A5CD-9A5FE7E1EA38}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Agressive Cache/{E7F1FF80-206D-46DC-8D92-97A92DD958B6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Bundle Local Path/{65931423-93F8-440B-A292-6E2B38D3538B}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Bundle/{89C046C2-4DF4-4AF4-B3AC-69E477279EA3}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Layout/{4D311A3D-F02B-4AD3-B876-EC7BD3A508D6}/invariant/0</x-item>
+        <x-item>/master/sitecore/templates/Sitecore Bundler/Bundler/Bundler Config/Minify/{B70270E3-EA39-468F-9DB1-A14D2BD097EA}/invariant/0</x-item>
+      </Entries>
+      <SkipVersions>False</SkipVersions>
+      <Converter>
+        <ItemToEntryConverter>
+          <Transforms />
+        </ItemToEntryConverter>
+      </Converter>
+      <Include />
+      <Exclude />
+      <Name>Templates and Dictionary Items</Name>
+    </xitems>
+  </Sources>
+  <Converter>
+    <TrivialConverter>
+      <Transforms />
+    </TrivialConverter>
+  </Converter>
+  <Include />
+  <Exclude />
+  <Name />
+</project>
