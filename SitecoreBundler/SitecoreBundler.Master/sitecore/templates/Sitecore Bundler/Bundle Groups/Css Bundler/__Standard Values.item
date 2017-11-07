@@ -13,8 +13,15 @@ created: 20171004T180036Z
 ----version----
 language: en
 version: 1
-revision: b74ce77e-e133-449c-9edf-2db0c13371f5
+revision: 5319470b-6cf3-4a43-bdd7-15515f787b17
 
+----field----
+field: {C82404D1-FD37-4BEE-A2B3-B51237F39F95}
+name: Bundled Filename
+key: bundled filename
+content-length: 5
+
+$name
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -42,14 +49,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-b74ce77e-e133-449c-9edf-2db0c13371f5
+5319470b-6cf3-4a43-bdd7-15515f787b17
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 16
 
-20171004T180036Z
+20171107T150018Z
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
