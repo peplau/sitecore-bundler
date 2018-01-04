@@ -18,5 +18,8 @@ namespace SitecoreBundler.Settings
 
         public static bool DebugMode =>
             Sitecore.Configuration.Settings.GetBoolSetting(Constants.SettingsKeys.DebugMode, false);
+
+        public static string SiteResolverAssembly =>
+            Sitecore.Configuration.Settings.GetSetting(Constants.SettingsKeys.SiteResolverAssembly, "SitecoreBundler.Bundling.Repository, SitecoreBundler");
     }
 }

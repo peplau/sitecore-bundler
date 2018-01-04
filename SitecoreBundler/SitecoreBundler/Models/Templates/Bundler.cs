@@ -5,12 +5,16 @@ using System.Web;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Mvc.Presentation;
+using Sitecore.Sites;
+using SitecoreBundler.Bundling.Repository;
 using SitecoreBundler.Log;
 
 namespace SitecoreBundler.Models.Templates
 {
     public partial class Bundler
     {
+        public static SiteContext Site =>
+            new SiteResolverRepository().GetSiteFromAssembly(Settings.BundleSettings.SiteResolverAssembly);
         public bool IsBundleEnabled => BundleEnabled.HasValue && BundleEnabled.Value;
         public bool IsMinifyEnabled => MinifyEnabled.HasValue && MinifyEnabled.Value;
         public bool IsAgressiveCacheEnabled => AgressiveCacheEnabled.HasValue && AgressiveCacheEnabled.Value;
@@ -33,6 +37,9 @@ namespace SitecoreBundler.Models.Templates
 
         public static Bundler GetBundler()
         {
+            if (Site == null)
+                return null;
+
             var logger = new Logger();
 
             // Get bundler from GlobalBundlerItem
@@ -59,7 +66,7 @@ namespace SitecoreBundler.Models.Templates
             try
             {
                 // Format path to safe quering
-                var contentStartPath = Sitecore.Context.Site.ContentStartPath;
+                var contentStartPath = Site.ContentStartPath;
                 contentStartPath = contentStartPath.Replace("/","#/#");
                 if (contentStartPath.StartsWith("#/"))
                     contentStartPath = contentStartPath.Substring(1, contentStartPath.Length-1);
@@ -90,7 +97,7 @@ namespace SitecoreBundler.Models.Templates
             catch (Exception e)
             {
                 Sitecore.Diagnostics.Log.Error(
-                    $"[SitecoreBundler] Error getting Bundler relative to current website - Website name: {Sitecore.Context.Site.Name}",
+                    $"[SitecoreBundler] Error getting Bundler relative to current website - Website name: {Site.Name}",
                     e, e.GetType());
                 return null;
             }
