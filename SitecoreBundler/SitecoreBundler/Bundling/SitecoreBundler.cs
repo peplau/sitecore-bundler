@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 using CdnBundle;
 using Sitecore.Data;
 using SitecoreBundler.Bundling.Repository;
@@ -44,7 +43,7 @@ namespace SitecoreBundler.Bundling
                 BundleGroupCache.Add(bundleGroup.ID, new BundleGroupCache(bundleGroup));
 
             // Clean up caches (filesystem and memory) if any change at the setup occured
-            SetupBundleCache(bundler, bundleGroup);
+            SetupBundleCache(bundler);
 
             if (!BundlerCache.ContainsKey(bundler.ID))
                 BundlerCache.Add(bundler.ID, new BundlerCache(bundler));
@@ -90,7 +89,7 @@ namespace SitecoreBundler.Bundling
             return ret;
         }
 
-        private static void SetupBundleCache(Bundler bundler, __BaseBundleGroup bundleGroup)
+        private static void SetupBundleCache(Bundler bundler)
         {
             // Clean up bundle Cache if needed
             if (!BundlerCache.HasChanged(bundler) && !BundleGroupCache.HasChangedAnyGroup(bundler))

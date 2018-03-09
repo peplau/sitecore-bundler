@@ -1,17 +1,18 @@
 ﻿<CodeGeneration Generator="Template Class">
-  <shape designerX="268" designerY="13">
-    <template templatename="_Base Bundle Group" templateid="{8F640C0E-BA86-41A5-9E95-8EAB419072A7}" templateuri="/sc900rev170622/master/{8F640C0E-BA86-41A5-9E95-8EAB419072A7}" classname="__BaseBundleGroup">
+  <shape designerX="258" designerY="14">
+    <template templatename="_Base Bundle Group" templateid="{8F640C0E-BA86-41A5-9E95-8EAB419072A7}" templateuri="/sc9u1.local/master/{8F640C0E-BA86-41A5-9E95-8EAB419072A7}" classname="__BaseBundleGroup">
       <section id="{B3E28B33-282F-48A6-8F31-1CFD0682B776}" name="Bundles">
         <field id="{108171BF-254E-4987-89F4-5926ACD9F14E}" name="Bundles" shared="0" source="" type="Multi-Line Text" unversioned="0" propertyname="Bundles" />
         <field id="{C82404D1-FD37-4BEE-A2B3-B51237F39F95}" name="Bundled Filename" shared="0" source="" type="Single-Line Text" unversioned="0" propertyname="BundledFilename" />
         <field id="{C7630412-27CA-4A28-A8AF-485CB2B543E6}" name="Bundle" shared="0" source="" type="Checkbox" unversioned="0" propertyname="Bundle" />
         <field id="{F81E5C28-3DF7-4766-901D-54A9C9BFA1C5}" name="Minify" shared="0" source="" type="Checkbox" unversioned="0" propertyname="Minify" />
         <field id="{AEAB6ABC-ECAA-4168-9935-07F77393C0DE}" name="Agressive Cache" shared="0" source="" type="Checkbox" unversioned="0" propertyname="AgressiveCache" />
+        <field id="{9C488B30-5DFD-4524-8937-9A91A20E8A7E}" name="Experience Editor" shared="0" source="" type="Droptree" unversioned="0" propertyname="ExperienceEditor" />
       </section>
     </template>
   </shape>
-  <shape designerX="19" designerY="13">
-    <template templatename="Bundler" templateid="{1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}" templateuri="/sc900rev170622/master/{1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}" classname="Bundler">
+  <shape designerX="20" designerY="11">
+    <template templatename="Bundler" templateid="{1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}" templateuri="/sc9u1.local/master/{1E8FC351-FD7F-4BC8-98BF-BC114D1C7912}" classname="Bundler">
       <section id="{9AE5E6C5-7CD1-4EAC-A5CD-9A5FE7E1EA38}" name="Bundler Config">
         <field id="{4D311A3D-F02B-4AD3-B876-EC7BD3A508D6}" name="Layout" shared="0" source="/sitecore/layout/Layouts" type="Droptree" unversioned="0" propertyname="Layout" />
         <field id="{65931423-93F8-440B-A292-6E2B38D3538B}" name="Bundle Local Path" shared="0" source="" type="Single-Line Text" unversioned="0" propertyname="BundleLocalPath" />
@@ -21,14 +22,14 @@
       </section>
     </template>
   </shape>
-  <shape designerX="508" designerY="12">
-    <template templatename="Javascript Bundler" templateid="{941080E4-0E64-4BD4-B216-B7A85A659BE6}" templateuri="/sc900rev170622/master/{941080E4-0E64-4BD4-B216-B7A85A659BE6}" classname="JavascriptBundler" />
+  <shape designerX="532" designerY="18">
+    <template templatename="Css Bundler" templateid="{31C4438D-D6C6-4CF5-819A-3755CC29D2C1}" templateuri="/sc9u1.local/master/{31C4438D-D6C6-4CF5-819A-3755CC29D2C1}" classname="CssBundler" />
   </shape>
-  <shape designerX="508" designerY="45">
-    <template templatename="Css Bundler" templateid="{31C4438D-D6C6-4CF5-819A-3755CC29D2C1}" templateuri="/sc900rev170622/master/{31C4438D-D6C6-4CF5-819A-3755CC29D2C1}" classname="CssBundler" />
+  <shape designerX="536" designerY="56">
+    <template templatename="Javascript Bundler" templateid="{941080E4-0E64-4BD4-B216-B7A85A659BE6}" templateuri="/sc9u1.local/master/{941080E4-0E64-4BD4-B216-B7A85A659BE6}" classname="JavascriptBundler" />
   </shape>
-  <shape designerX="16" designerY="214">
-    <template templatename="Dictionary entry" templateid="{6D1CD897-1936-4A3A-A511-289A94C2A7B1}" templateuri="/sc900rev170622/master/{6D1CD897-1936-4A3A-A511-289A94C2A7B1}" classname="DictionaryEntry">
+  <shape designerX="18" designerY="170">
+    <template templatename="Dictionary entry" templateid="{6D1CD897-1936-4A3A-A511-289A94C2A7B1}" templateuri="/sc9u1.local/master/{6D1CD897-1936-4A3A-A511-289A94C2A7B1}" classname="DictionaryEntry">
       <section id="{224562F4-3041-4E45-9553-7149F3E365E8}" name="Data">
         <field id="{580C75A8-C01A-4580-83CB-987776CEB3AF}" name="Key" shared="1" source="" type="Multi-Line Text" unversioned="0" propertyname="Key" />
         <field id="{2BA3454A-9A9C-4CDF-A9F8-107FD484EB6E}" name="Phrase" shared="0" source="" type="Multi-Line Text" unversioned="1" propertyname="Phrase" />

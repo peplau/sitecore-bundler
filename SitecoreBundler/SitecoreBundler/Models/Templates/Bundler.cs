@@ -115,7 +115,13 @@ namespace SitecoreBundler.Models.Templates
             var query = InnerItem.Children.Where(p =>
                     p.TemplateID == JavascriptBundler.TemplateID || p.TemplateID == CssBundler.TemplateID)
                 .Select(p => new __BaseBundleGroup(p)).Where(p => p.BundledFilename == filename).ToList();
-            return query.Any() ? new __BaseBundleGroup(query.First()) : null;
+
+            var bundleGroup = query.Any() ? new __BaseBundleGroup(query.First()) : null;
+            if (bundleGroup == null)
+                return null;
+            if (Sitecore.Context.PageMode.IsExperienceEditorEditing && bundleGroup.ExperienceEditor.TargetItem!=null)
+                return new __BaseBundleGroup(bundleGroup.ExperienceEditor.TargetItem);
+            return bundleGroup;
         }
 
         public string BundleLocalAbsolutePath

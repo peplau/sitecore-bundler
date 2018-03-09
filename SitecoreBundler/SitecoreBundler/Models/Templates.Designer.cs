@@ -42,6 +42,8 @@ namespace SitecoreBundler.Models.Templates
 
       public static readonly ID AgressiveCache = ID.Parse("{AEAB6ABC-ECAA-4168-9935-07F77393C0DE}");
 
+      public static readonly ID ExperienceEditor = ID.Parse("{9C488B30-5DFD-4524-8937-9A91A20E8A7E}");
+
     }
     
     /// <summary>Gets or sets the "Bundles" field.</summary>
@@ -106,6 +108,15 @@ namespace SitecoreBundler.Models.Templates
       set 
       {
         this.InnerItem[FieldIds.AgressiveCache] = value ? "1" : string.Empty;
+      }
+    }
+  
+    /// <summary>Gets the "Experience Editor" field.</summary>
+    public ReferenceField ExperienceEditor 
+    {
+      get 
+      {
+        return this.InnerItem.Fields[FieldIds.ExperienceEditor];
       }
     }
   
@@ -242,49 +253,6 @@ namespace SitecoreBundler.Models.Templates
     }
   }
       
-  /// <summary>Represents the "Javascript Bundler" template.</summary>
-  public partial class JavascriptBundler : CustomItem
-  {
-    public static readonly ID TemplateID = ID.Parse("{941080E4-0E64-4BD4-B216-B7A85A659BE6}");
-
-    public JavascriptBundler(Item item) : base(item) {
-    }
-
-    public static class FieldIds {
-      
-    }
-    
-    public static JavascriptBundler Create(Item item) 
-    {
-      return new JavascriptBundler(item);
-    }
-
-    public static implicit operator Item (JavascriptBundler item)
-    {
-      if (item == null)
-      {
-        return null;
-      }
-
-      return item.InnerItem;
-    }
-
-    public static explicit operator JavascriptBundler(Item item)
-    {
-      if (item == null)
-      {
-        return null;
-      }
-
-      if (item.TemplateID != TemplateID)
-      {
-        return null;
-      }
-
-      return Create(item);
-    }
-  }
-      
   /// <summary>Represents the "Css Bundler" template.</summary>
   public partial class CssBundler : CustomItem
   {
@@ -313,6 +281,49 @@ namespace SitecoreBundler.Models.Templates
     }
 
     public static explicit operator CssBundler(Item item)
+    {
+      if (item == null)
+      {
+        return null;
+      }
+
+      if (item.TemplateID != TemplateID)
+      {
+        return null;
+      }
+
+      return Create(item);
+    }
+  }
+      
+  /// <summary>Represents the "Javascript Bundler" template.</summary>
+  public partial class JavascriptBundler : CustomItem
+  {
+    public static readonly ID TemplateID = ID.Parse("{941080E4-0E64-4BD4-B216-B7A85A659BE6}");
+
+    public JavascriptBundler(Item item) : base(item) {
+    }
+
+    public static class FieldIds {
+      
+    }
+    
+    public static JavascriptBundler Create(Item item) 
+    {
+      return new JavascriptBundler(item);
+    }
+
+    public static implicit operator Item (JavascriptBundler item)
+    {
+      if (item == null)
+      {
+        return null;
+      }
+
+      return item.InnerItem;
+    }
+
+    public static explicit operator JavascriptBundler(Item item)
     {
       if (item == null)
       {
