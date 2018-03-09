@@ -28,10 +28,10 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>.\bin\Debug\</OutputPath>
     <RecursiveDeployAction>Ignore</RecursiveDeployAction>
-    <SitecoreWebUrl>http://sc900rev170622/</SitecoreWebUrl>
+    <SitecoreWebUrl>http://sc9u1.local/</SitecoreWebUrl>
     <InstallSitecoreConnector>True</InstallSitecoreConnector>
     <DisableFileDeployment>False</DisableFileDeployment>
-    <SitecoreDeployFolder>C:\inetpub\wwwroot\sc900rev170622</SitecoreDeployFolder>
+    <SitecoreDeployFolder>C:\inetpub\wwwroot\sc9u1.local</SitecoreDeployFolder>
     <SitecoreAccessGuid>1712b6c4-955e-4f1c-8dc9-7b5f17429063</SitecoreAccessGuid>
     <LightningDeployMode>False</LightningDeployMode>
   </PropertyGroup>
