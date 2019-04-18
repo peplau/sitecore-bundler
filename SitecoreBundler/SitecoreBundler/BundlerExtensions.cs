@@ -24,6 +24,8 @@ namespace SitecoreBundler
             logger.Finish();
             if (bundleGroup == null)
                 return new HtmlString(ret);
+            if (bundleGroup.BundledFilename != null && filename != bundleGroup.BundledFilename)
+                filename = bundleGroup.BundledFilename;
 
             logger.Start($"Call GetBundleString({bundler.DisplayName}, {bundleGroup.DisplayName}, \"{filename}\")");
             ret = Bundling.SitecoreBundler.Instance.GetBundleString(bundler, bundleGroup, filename);
