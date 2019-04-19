@@ -77,8 +77,8 @@ namespace SitecoreBundler.Models.Templates
 
                 // Execute query and get all possible options
                 var query =
-                    $"fast:{contentStartPath}//*[@@templateid='{TemplateID}' and (@Layout='{new ID(RenderingContext.Current.Rendering.LayoutId)}' or @Layout='')]";
-                logger.Start($"Get Bundle Item - Step 1: fast query ({query})");
+                    $"{contentStartPath}//*[@@templateid='{TemplateID}' and (@Layout='{new ID(RenderingContext.Current.Rendering.LayoutId)}' or @Layout='')]";
+                logger.Start($"Get Bundle Item - Step 1: query ({query})");
                 var bundlerItems = Sitecore.Context.Database.SelectItems(query).Select(p => new Bundler(p)).ToArray();
                 logger.Finish();
 
